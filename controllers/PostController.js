@@ -121,7 +121,7 @@ export const update = async (req, res) => {
         text: req.body.text,
         imageUrl: req.body.imageUrl,
         user: req.userId,
-        tags: req.body.tags.toLowerCase().trim().split(','),
+        tags: req.body.tags.toLowerCase().trim().replace(/%20/g, '').split(','),
       },
 
       res.json({
